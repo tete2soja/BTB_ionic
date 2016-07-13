@@ -203,7 +203,6 @@ angular.module('starter.controllers', [])
 
 .controller('LineCtrl', function ($scope, $http, $stateParams, $rootScope) {
     $scope.id = $stateParams.lineID;
-    //console.log('https://applications002.brest-metropole.fr/WIPOD01/Transport/REST/getDestinations?format=json&route_id=' + $stateParams.lineID);
     //$http.get('https://applications002.brest-metropole.fr/WIPOD01/Transport/REST/getDestinations?format=json&route_id=' + $stateParams.lineID).success(function (data) {
     $http.get('terminus.json').success(function (data) {
         $scope.destinations = data;
