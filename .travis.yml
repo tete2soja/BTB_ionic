@@ -36,7 +36,7 @@ before_script:
 
 script:
   - ionic platform remove android
-  - ionic resources --icon
   - ionic platform add android
+  - ionic resources --icon
   - ionic build android
   - ls ionic info
