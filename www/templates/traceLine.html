@@ -1,8 +1,8 @@
-﻿<ion-view view-title="Accueil">
+﻿<ion-view view-title="Tracer de la ligne">
     <ion-content>
         <leaflet lf-center="position" paths="paths" width="100%" height="480px"></leaflet>
-        <button class="button button-clear button-positive button-full" ng-click="loadPaths()">
-            Tracer
+        <button class="button button-clear button-positive button-full" ng-click="$parent.loadPaths(destination.Trip_headsign)" ng-repeat="destination in destinations">
+            {{destination.Trip_headsign}}
         </button>
     </ion-content>
 </ion-view>

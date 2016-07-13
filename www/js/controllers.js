@@ -87,7 +87,6 @@ angular.module('starter.controllers', [])
 })
 
 .controller('MeCtrl', function ($scope, $http, $cordovaGeolocation) {
-
     var watchOptions = {
         frequency: 100,
         timeout: 20 * 100,
@@ -123,8 +122,12 @@ angular.module('starter.controllers', [])
     })
 })
 
-.controller('TraceLineCtrl', function ($scope, $http, $stateParams, $rootScope) {
-
+.controller('TraceLineCtrl', function ($scope, $http, $stateParams, $rootScope, $window) {
+    $scope.id = $stateParams.routeID;
+    $http.get('https://applications002.brest-metropole.fr/WIPOD01/Transport/REST/getDestinations?format=json&route_id=' + $stateParams.routeID).success(function (data) {
+        //$http.get('terminus.json').success(function (data) {
+        $scope.destinations = data;
+    })
     var mainMarker = {
         lat: Math.round($stateParams.lat * 1000) / 1000,
         lng: Math.round($stateParams.lon * 1000) / 1000,
@@ -145,8 +148,10 @@ angular.module('starter.controllers', [])
             }
         }
     });
-    $scope.loadPaths = function loadPaths() {
-        $http.get('paths.json').success(function (data) {
+
+    $scope.loadPaths = function loadPaths(dest) {
+        $window.alert('https://applications002.brest-metropole.fr/WIPOD01/Transport/REST/getStops_route?format=json&route_id=' + $scope.id + '&trip_headsign=' + dest);
+        $http.get('https://applications002.brest-metropole.fr/WIPOD01/Transport/REST/getStops_route?format=json&route_id=' + $scope.id + '&trip_headsign=' + dest).success(function (data) {
             var path = '{ "p1": { "color": "red", "weight": 3, "latlngs": [';
             console.log("------------------------");
             for (var k in data) {
@@ -155,7 +160,7 @@ angular.module('starter.controllers', [])
             }
             path = path.substring(0, path.length-1);
             path = path + '] } }';;
-            console.log(path);
+            $window.alert(path);
             $scope.paths = JSON.parse(path);
 
             var position = 'stop: { lat:' + data[Math.round(data.length / 2)].Stop_lat + ', lng: ' + data[Math.round(data.length / 2)].Stop_lon + ', zoom: 12 }';
