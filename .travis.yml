@@ -38,4 +38,3 @@ script:
   - ionic platform add android
   - ionic resources --icon
   - ionic build android
-  - ls ionic info
