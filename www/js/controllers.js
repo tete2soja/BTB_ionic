@@ -84,6 +84,13 @@ angular.module('starter.controllers', [])
     })
 })
 
+.controller('NewsCtrl', function ($scope, $http) {
+    $http.get('https://applications002.brest-metropole.fr/WIPOD01/Transport.svc/getPerturbations?format=json').success(function (data) {
+    //$http.get('news.json').success(function (data) {
+        $scope.news = data;
+    })
+})
+
 .controller('MeCtrl', function ($scope, $http, $cordovaGeolocation) {
 
     var watchOptions = {

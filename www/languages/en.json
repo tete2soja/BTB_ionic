@@ -1,4 +1,10 @@
 {
-	"HEADLINE" : "Hello there, This is my awesome app!",
-    "NEXT_DEPATURES" : "Next departures"
+  "NEXT_DEPATURES" : "Next departures",
+  "DARK_THEME" : "Dark theme",
+  "LANGUAGE" : "Language",
+  "MY_POSITION" : "My positon",
+  "LINES" : "Lines",
+  "NEWS" : "News",
+  "BOOKMARKS" : "Bookmarks",
+  "SETTINGS" : "Settings"
 }

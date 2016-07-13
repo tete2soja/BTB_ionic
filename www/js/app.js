@@ -63,7 +63,8 @@ angular.module('starter', ['openlayers-directive', 'ionic', 'starter.controllers
       url: '/news',
       views: {
           'menuContent': {
-              templateUrl: 'templates/news.html'
+              templateUrl: 'templates/news.html',
+              controller: 'NewsCtrl'
           }
       }
   })

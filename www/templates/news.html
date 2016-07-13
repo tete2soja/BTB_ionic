@@ -1,9 +1,10 @@
 ﻿<ion-view view-title="News">
   <ion-content>
-    <ion-list>
-      <ion-item ng-repeat="playlist in playlists" href="#/app/playlists/{{playlist.id}}">
-        {{playlist.title}}
-      </ion-item>
-    </ion-list>
+      <div class="card" ng-repeat="new in news">
+          <div class="item item-text-wrap">
+              <h3>{{new.Title}}</h3>
+              <p>{{new.Description}}</p>
+          </div>
+      </div>
   </ion-content>
 </ion-view>

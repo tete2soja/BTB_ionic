@@ -1,0 +1,33 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "ionic-sidemenu"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "ionic-sidemenu"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "ionic-sidemenu"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "ionic-sidemenu"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "ionic-sidemenu"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "ionic-sidemenu"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "ionic-sidemenu"
+        }
+    },
+    "dependent_plugins": {}
+}
