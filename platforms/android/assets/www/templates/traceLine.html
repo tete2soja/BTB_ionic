@@ -1,0 +1,14 @@
+﻿<ion-view view-title="Accueil">
+    <ion-content>
+        <h1>COUCOUUUU</h1>
+        <button class="button icon-left ion-information-circled button-clear button-positive" ng-click="loadPaths()">
+            Alert
+        </button>
+        <leaflet lf-center="position" paths="paths" width="100%" height="480px"></leaflet>
+        <ion-list>
+            <ion-item ng-repeat="stop in paths">
+                {{stop.Stop_name}}
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
