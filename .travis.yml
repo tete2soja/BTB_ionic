@@ -2,7 +2,7 @@ sudo: false
 
 language: node_js
 node_js:
-  - "5.1"
+  - "0.12.2"
 
 addons:
   apt:
@@ -17,6 +17,7 @@ env:
   CXX=g++-4.8
 
 install:
+  - npm config set registry https://registry.npmjs.org/
   - npm install -g gulp bower cordova ionic
   - npm install
   - bower update
