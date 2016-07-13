@@ -84,6 +84,43 @@ angular.module('starter.controllers', [])
     })
 })
 
+.controller('MeCtrl', function ($scope, $http, $cordovaGeolocation) {
+
+    var watchOptions = {
+        frequency: 100,
+        timeout: 20 * 100,
+        enableHighAccuracy: false // may cause errors if true
+    };
+    var watch = $cordovaGeolocation.watchPosition(watchOptions);
+    watch.then(
+      null,
+      function (err) {
+          alert("WatchPosition failed: " + JSON.stringify(err));
+      },
+      function (position) {
+          $scope.center.lat = position.coords.latitude;
+          $scope.center.lon = position.coords.longitude;
+      }
+    );
+
+    angular.extend($scope, {
+        center: {
+            lat: 48.39,
+            lng: -4.435,
+            zoom: 12
+        },
+        markers: []
+    });
+
+    $scope.markers = [];
+    //$http.get('https://applications002.brest-metropole.fr/WIPOD01/Transport/REST/getStopsNear?format=json&latitude=' + $scope.center.lat + '&longitude=' + $scope.center.lon).then(function (responseData) {
+    $http.get('stopnear.json').then(function (responseData) {
+        for (var i = 0; i < responseData.data.length; i++) {
+            $scope.markers[i] = L.latLng(responseData.data[i].Stop_lat,responseData.data[i].Stop_lon);
+        }
+    })
+})
+
 .controller('TraceLineCtrl', function ($scope, $http, $stateParams, $rootScope) {
 
     var mainMarker = {

@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['openlayers-directive', 'ionic', 'starter.controllers', 'pascalprecht.translate', 'leaflet-directive'    ])
+angular.module('starter', ['openlayers-directive', 'ionic', 'starter.controllers', 'pascalprecht.translate', 'leaflet-directive', 'ngCordova'])
 
 .run(function ($ionicPlatform, $rootScope) {
     $rootScope.style = "style";
@@ -45,6 +45,16 @@ angular.module('starter', ['openlayers-directive', 'ionic', 'starter.controllers
       views: {
           'menuContent': {
               templateUrl: 'templates/home.html'
+          }
+      }
+  })
+
+  .state('app.me', {
+      url: '/me',
+      views: {
+          'menuContent': {
+              templateUrl: 'templates/me.html',
+              controller: 'MeCtrl'
           }
       }
   })
