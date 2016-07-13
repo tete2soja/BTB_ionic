@@ -2,7 +2,7 @@
     <ion-content>
         <h1>{{name}}</h1>
         <p>{{'NEXT_DEPATURES' | translate}} : {{stop[0].Arrival_time}} - {{stop[1].Arrival_time}}</p>
-        <leaflet lf-center="stop" paths="paths" markers="markers" height="300px" width="100%"></leaflet>
+        <leaflet defaults="defaults" lf-center="stop" markers="markers" height="300px" width="100%"></leaflet>
         <button class="button button-full button-balanced">
             GO
         </button>

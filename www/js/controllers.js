@@ -17,8 +17,8 @@ angular.module('starter.controllers', [])
 
 .controller('StopCtrl', function ($scope, $http, $stateParams, $rootScope) {
     $scope.name = $stateParams.stopName;
-    //$http.get('https://applications002.brest-metropole.fr/WIPOD01/Transport/REST/getNextDepartures?format=json&route_id=' + $stateParams.routeID + '&stop_name=' + $stateParams.stopName + '&trip_headsign=' + $rootScope.tripHeadsing).success(function (data) {
-    $http.get('stop.json').success(function (data) {
+    $http.get('https://applications002.brest-metropole.fr/WIPOD01/Transport/REST/getNextDepartures?format=json&route_id=' + $stateParams.routeID + '&stop_name=' + $stateParams.stopName + '&trip_headsign=' + $rootScope.tripHeadsing).success(function (data) {
+    //$http.get('stop.json').success(function (data) {
         $scope.stop = data;
         console.log(data);
     })
@@ -46,17 +46,6 @@ angular.module('starter.controllers', [])
         draggable: false
     };
     angular.extend($scope, {
-        paths: {
-            p1: {
-                color: '#008000',
-                weight: 8,
-                latlngs: [
-                    { lat: Math.round($stateParams.lat * 1000) / 1000 - 1, lng: Math.round($stateParams.lon * 1000) / 1000 },
-                    { lat: Math.round($stateParams.lat * 1000) / 1000, lng: Math.round($stateParams.lon * 1000) / 1000 },
-                    { lat: Math.round($stateParams.lat * 1000) / 1000 + 1, lng: Math.round($stateParams.lon * 1000) / 1000 }
-                ],
-            }
-        },
         stop: {
             lat: Math.round($stateParams.lat * 1000) / 1000,
             lng: Math.round($stateParams.lon * 1000) / 1000,
@@ -69,6 +58,11 @@ angular.module('starter.controllers', [])
             lat: Math.round($stateParams.lat * 1000) / 1000,
             lng: Math.round($stateParams.lon * 1000) / 1000
         },
+        defaults: {
+            zoomControl: false,
+            attributionControl: false,
+            scrollWheelZoom: false
+        },
         events: { // or just {} //all events
             markers: {
                 enable: ['dragend']
@@ -79,7 +73,8 @@ angular.module('starter.controllers', [])
 })
 
 .controller('LinesCtrl', function ($scope, $http) {
-    $http.get('lines.json').success(function (data) {
+    $http.get('https://applications002.brest-metropole.fr/WIPOD01/Transport/REST/getRoutes?format=json').success(function (data) {
+    //$http.get('lines.json').success(function (data) {
         $scope.lines = data;
     })
 })
@@ -120,8 +115,8 @@ angular.module('starter.controllers', [])
     });
 
     $scope.markers = [];
-    //$http.get('https://applications002.brest-metropole.fr/WIPOD01/Transport/REST/getStopsNear?format=json&latitude=' + $scope.center.lat + '&longitude=' + $scope.center.lon).then(function (responseData) {
-    $http.get('stopnear.json').then(function (responseData) {
+    $http.get('https://applications002.brest-metropole.fr/WIPOD01/Transport/REST/getStopsNear?format=json&latitude=' + $scope.center.lat + '&longitude=' + $scope.center.lon).then(function (responseData) {
+    //$http.get('stopnear.json').then(function (responseData) {
         for (var i = 0; i < responseData.data.length; i++) {
             $scope.markers[i] = L.latLng(responseData.data[i].Stop_lat,responseData.data[i].Stop_lon);
         }
@@ -210,15 +205,15 @@ angular.module('starter.controllers', [])
 
 .controller('LineCtrl', function ($scope, $http, $stateParams, $rootScope) {
     $scope.id = $stateParams.lineID;
-    //$http.get('https://applications002.brest-metropole.fr/WIPOD01/Transport/REST/getDestinations?format=json&route_id=' + $stateParams.lineID).success(function (data) {
-    $http.get('terminus.json').success(function (data) {
+    $http.get('https://applications002.brest-metropole.fr/WIPOD01/Transport/REST/getDestinations?format=json&route_id=' + $stateParams.lineID).success(function (data) {
+    //$http.get('terminus.json').success(function (data) {
         $scope.destinations = data;
     })
     $scope.refreshStop = function(id) {
         console.log("Value" + this.line);
         $rootScope.tripHeadsing = this.line;
-        $http.get('Oceanopolis.json').success(function (data) {        
-        //$http.get('https://applications002.brest-metropole.fr/WIPOD01/Transport/REST/getStops_route?format=json&route_id='+this.id+'&trip_headsign='+this.line).success(function (data) {
+        //$http.get('Oceanopolis.json').success(function (data) {        
+        $http.get('https://applications002.brest-metropole.fr/WIPOD01/Transport/REST/getStops_route?format=json&route_id='+this.id+'&trip_headsign='+this.line).success(function (data) {
             $scope.stops = data;
         })
     }
