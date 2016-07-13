@@ -4,6 +4,7 @@
 [Bb]in/
 
 bld/
+platforms/
 
 # User-specific files
 *.suo

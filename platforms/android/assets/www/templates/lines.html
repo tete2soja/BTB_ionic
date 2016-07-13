@@ -1,9 +1,11 @@
 ﻿<ion-view view-title="Lignes">
     <ion-content>
-        <ion-list>
-            <ion-item ng-repeat="line in lines" href="#/app/line/{{line.Route_id}}" ng-model="line.Route_id">
-                {{line.Route_id}}
-            </ion-item>
-        </ion-list>
+        <div class="list">
+                <a ng-repeat="line in lines" class="item item-thumbnail-left" href="#">
+                    <img ng-src="img/lignes/ligne_{{line.Route_id}}.png">
+                    <h2>{{line.Route_id}}</h2>
+                    <p>{{line.Route_long_name}}</p>
+                </a>
+        </div>
     </ion-content>
 </ion-view>
