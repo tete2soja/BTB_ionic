@@ -16,6 +16,9 @@ addons:
 env:
   CXX=g++-4.8
 
+notifications:
+  slack: slackerspace:LtstVlXCibPekCBpSTfP2DDI
+
 install:
   - npm config set registry https://registry.npmjs.org/
   - npm install -g gulp bower cordova ionic
