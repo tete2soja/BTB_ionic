@@ -1,0 +1,33 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "fr.nlegall.btb"
+        },
+        "cordova-plugin-console": {
+            "PACKAGE_NAME": "fr.nlegall.btb"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "fr.nlegall.btb"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "fr.nlegall.btb"
+        },
+        "cordova-plugin-statusbar": {
+            "PACKAGE_NAME": "fr.nlegall.btb"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "fr.nlegall.btb"
+        },
+        "ionic-plugin-keyboard": {
+            "PACKAGE_NAME": "fr.nlegall.btb"
+        }
+    },
+    "dependent_plugins": {}
+}
