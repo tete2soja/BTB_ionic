@@ -3,6 +3,7 @@
   "version": "1.1.1",
   "description": "An Ionic project",
   "dependencies": {
+    "express": "^4.4.5",
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
     "gulp-clean-css": "^2.0.11",
@@ -10,6 +11,9 @@
     "gulp-sass": "^2.3.2",
     "gulp-util": "^3.0.7",
     "shelljs": "^0.7.0"
+  },
+  "scripts": {
+    "start": "node server.js"
   },
   "devDependencies": {
     "angular-translate": "^2.11.0",
